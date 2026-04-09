@@ -9,9 +9,11 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 
-namespace MegaCrit.Sts2.Core.Models.Powers;
-
+namespace Patchouib.Scripts.Main
+{
 public abstract class CustomTempStrengthPower : CustomPowerModel, ITemporaryPower
 {
 	private bool _shouldIgnoreNextInstance;
@@ -158,3 +160,6 @@ public abstract class CustomTempStrengthPower : CustomPowerModel, ITemporaryPowe
 		}
 	}
 }
+
+}
+
