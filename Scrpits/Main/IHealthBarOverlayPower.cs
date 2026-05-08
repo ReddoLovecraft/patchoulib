@@ -1,3 +1,4 @@
+using BaseLib.Abstracts;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Models;
@@ -11,7 +12,13 @@ namespace Patchouib.Scrpits.Main
         bool IsOverlayFromEnd();
         bool IsOverlayLethal(Creature owner);
     }
-    public abstract class HealthBarOverlayPowerModel : PowerModel, IHealthBarOverlayPower
+
+    public interface IVisiblePower
+    {
+        string TscnPath { get; }
+    }
+
+    public abstract class HealthBarOverlayPowerModel : CustomPowerModel, IHealthBarOverlayPower
     {
         public virtual int GetHealthBarOverlayValue(Creature owner)
         {

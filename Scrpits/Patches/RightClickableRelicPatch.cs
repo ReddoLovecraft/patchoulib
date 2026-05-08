@@ -1,9 +1,12 @@
 using System.Reflection;
 using Godot;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes.Cards.Holders;
 using MegaCrit.Sts2.Core.Nodes.GodotExtensions;
 using MegaCrit.Sts2.Core.Nodes.Relics;
 using Patchouib.Scrpits.Main;
@@ -153,6 +156,111 @@ namespace SilkSong.Scrpits.Patches
                 _invokersByType[type] = invoker;
                 return invoker;
             }
+        }
+    }
+
+    [HarmonyPatch(typeof(NCardHolder), "ConnectSignals")]
+    public static class RightClickableCardPatch
+    {
+        private const string _connectedMetaKey = "Patchoulib_CardRightClickConnected";
+
+        private static void Postfix(NCardHolder __instance)
+        {
+            TryConnect(__instance);
+        }
+
+        private static void TryConnect(NCardHolder holder)
+        {
+            NClickableControl hitbox = holder.Hitbox;
+            if (hitbox == null || hitbox.HasMeta(_connectedMetaKey))
+            {
+                return;
+            }
+
+            hitbox.SetMeta(_connectedMetaKey, true);
+            hitbox.Connect(NClickableControl.SignalName.MouseReleased, Callable.From<InputEvent>(e => HandleMouseReleased(holder, e)));
+        }
+
+        private static void HandleMouseReleased(NCardHolder holder, InputEvent inputEvent)
+        {
+            if (inputEvent is not InputEventMouseButton mouseButton)
+            {
+                return;
+            }
+
+            if (mouseButton.ButtonIndex != MouseButton.Right || mouseButton.Pressed)
+            {
+                return;
+            }
+
+            CardModel? model = holder.CardModel;
+            if (model is not IRightClickableCardModel clickableModel)
+            {
+                return;
+            }
+
+            if (!IsRightClickAllowed(model, clickableModel))
+            {
+                return;
+            }
+
+            InvokeOnRightClick(model, clickableModel);
+        }
+
+        private static bool IsRightClickAllowed(CardModel model, IRightClickableCardModel clickableModel)
+        {
+            if (clickableModel.IsCombat && !CombatManager.Instance.IsInProgress)
+            {
+                return false;
+            }
+
+            List<PileType> piles = clickableModel.Pile;
+            if (piles == null || piles.Count == 0)
+            {
+                return true;
+            }
+
+            PileType currentPile = model.Pile?.Type ?? PileType.None;
+            return piles.Contains(currentPile);
+        }
+
+        private static void InvokeOnRightClick(CardModel model, IRightClickableCardModel clickableModel)
+        {
+            PlayerChoiceContext context = new BlockingPlayerChoiceContext();
+            context.PushModel(model);
+
+            Task? task = null;
+            try
+            {
+                task = clickableModel.OnRightClick(context);
+            }
+            catch (Exception e)
+            {
+                Log.Error(e.ToString());
+            }
+
+            if (task == null)
+            {
+                context.PopModel(model);
+                return;
+            }
+
+            _ = task.ContinueWith(t =>
+            {
+                try
+                {
+                    context.PopModel(model);
+                }
+                catch (Exception e)
+                {
+                    Log.Error(e.ToString());
+                }
+
+                if (t.IsFaulted && t.Exception != null)
+                {
+                    Log.Error(t.Exception.ToString());
+                }
+            }, TaskScheduler.Default);
         }
     }
 

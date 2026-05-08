@@ -1,0 +1,6 @@
+{
+  "PATCHOUIB-IGNITE_POWER.title": "点燃",
+  "PATCHOUIB-IGNITE_POWER.description": "在你的回合开始时，失去等同于层数的生命，然后将层数加[blue]1[/blue]。",
+  "PATCHOUIB-IGNITE_POWER.smartDescription": "在你的回合开始时，失去[blue]{Amount}[/blue]点生命，然后将层数加[blue]1[/blue]。"
+}
+

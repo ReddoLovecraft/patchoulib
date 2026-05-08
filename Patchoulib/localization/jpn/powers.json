@@ -1,0 +1,6 @@
+{
+  "PATCHOUIB-IGNITE_POWER.title": "炎上",
+  "PATCHOUIB-IGNITE_POWER.description": "あなたのターン開始時、層数と同じだけのライフを失い、その後層数を[blue]1[/blue]増やす。",
+  "PATCHOUIB-IGNITE_POWER.smartDescription": "あなたのターン開始時、[blue]{Amount}[/blue]ライフを失い、その後層数を[blue]1[/blue]増やす。"
+}
+
