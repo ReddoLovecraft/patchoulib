@@ -1,6 +1,9 @@
 {
   "PATCHOUIB-IGNITE_POWER.title": "Ignite",
   "PATCHOUIB-IGNITE_POWER.description": "At the start of your turn, lose HP equal to the stack, then increase the stack by [blue]1[/blue].",
-  "PATCHOUIB-IGNITE_POWER.smartDescription": "At the start of your turn, lose [blue]{Amount}[/blue] HP, then increase the stack by [blue]1[/blue]."
+  "PATCHOUIB-IGNITE_POWER.smartDescription": "At the start of your turn, lose [blue]{Amount}[/blue] HP, then increase the stack by [blue]1[/blue].",
+  "PATCHOUIB-FREEZE_POWER.title": "Freeze",
+  "PATCHOUIB-FREEZE_POWER.description": "Reduces damage dealt by an amount.\nAt the end of your turn, reduce the stacks by [blue]1[/blue].",
+  "PATCHOUIB-FREEZE_POWER.smartDescription": "Reduces damage dealt by [blue]{Amount}[/blue].\nAt the end of your turn, reduce the stacks by [blue]1[/blue]."
 }
 

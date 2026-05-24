@@ -1,6 +1,9 @@
 {
   "PATCHOUIB-IGNITE_POWER.title": "点燃",
   "PATCHOUIB-IGNITE_POWER.description": "在你的回合开始时，失去等同于层数的生命，然后将层数加[blue]1[/blue]。",
-  "PATCHOUIB-IGNITE_POWER.smartDescription": "在你的回合开始时，失去[blue]{Amount}[/blue]点生命，然后将层数加[blue]1[/blue]。"
+  "PATCHOUIB-IGNITE_POWER.smartDescription": "在你的回合开始时，失去[blue]{Amount}[/blue]点生命，然后将层数加[blue]1[/blue]。",
+  "PATCHOUIB-FREEZE_POWER.title": "冻结",
+  "PATCHOUIB-FREEZE_POWER.description": "造成的伤害减少层数点。\n在你的回合结束时，将层数减少[blue]1[/blue]点。",
+  "PATCHOUIB-FREEZE_POWER.smartDescription": "造成的伤害减少[blue]{Amount}[/blue]点。\n在你的回合结束时，将层数减少[blue]1[/blue]点。"
 }
 

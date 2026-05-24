@@ -1,6 +1,9 @@
 {
   "PATCHOUIB-IGNITE_POWER.title": "炎上",
   "PATCHOUIB-IGNITE_POWER.description": "あなたのターン開始時、層数と同じだけのライフを失い、その後層数を[blue]1[/blue]増やす。",
-  "PATCHOUIB-IGNITE_POWER.smartDescription": "あなたのターン開始時、[blue]{Amount}[/blue]ライフを失い、その後層数を[blue]1[/blue]増やす。"
+  "PATCHOUIB-IGNITE_POWER.smartDescription": "あなたのターン開始時、[blue]{Amount}[/blue]ライフを失い、その後層数を[blue]1[/blue]増やす。",
+  "PATCHOUIB-FREEZE_POWER.title": "凍結",
+  "PATCHOUIB-FREEZE_POWER.description": "与えるダメージが層数分減少する。\nあなたのターン終了時、層数を[blue]1[/blue]減少させる。",
+  "PATCHOUIB-FREEZE_POWER.smartDescription": "与えるダメージが[blue]{Amount}[/blue]減少する。\nあなたのターン終了時、層数を[blue]1[/blue]減少させる。"
 }
 
