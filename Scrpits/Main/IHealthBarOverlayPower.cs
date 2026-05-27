@@ -13,11 +13,6 @@ namespace Patchouib.Scrpits.Main
         bool IsOverlayLethal(Creature owner);
     }
 
-    public interface IVisiblePower
-    {
-        string TscnPath { get; }
-    }
-
     public abstract class HealthBarOverlayPowerModel : CustomPowerModel, IHealthBarOverlayPower
     {
         public virtual int GetHealthBarOverlayValue(Creature owner)
