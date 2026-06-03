@@ -1,5 +1,8 @@
 {
   "IGNITE_POWER.title": "点燃",
-  "IGNITE_POWER.description": "回合开始时，失去层数点生命，然后将层数增加[blue]1[/blue]层。"
+  "IGNITE_POWER.description": "回合开始时，失去层数点生命，然后将层数增加[blue]1[/blue]层。",
+  "FORSEEN.title": "预见",
+  "FORSEEN.description": "检视你[gold]抽牌堆[/gold]顶部的X张牌。你可以选择丢弃其中的任意张。",
+  "FORSEEN.selectionScreenPrompt": "选择任意张牌丢弃。"
 }
 

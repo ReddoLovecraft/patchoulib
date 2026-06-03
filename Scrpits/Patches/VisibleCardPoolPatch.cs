@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Godot;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
@@ -231,6 +232,18 @@ namespace Patchouib.Scrpits.Patches
                         shadow.Texture = iconTexture;
                     }
 
+                    try
+                    {
+                        string? hoverTipKey = ((IVisibleCardPool)pool).GetCardLibraryHoverTipKey();
+                        if (!string.IsNullOrWhiteSpace(hoverTipKey))
+                        {
+                            filterButton.Loc = new LocString("main_menu_ui", NormalizeHoverTipKey(hoverTipKey));
+                        }
+                    }
+                    catch
+                    {
+                    }
+
                     filterButton.Connect(NCardPoolFilter.SignalName.Toggled, Callable.From<NCardPoolFilter>(f => _updateCardPoolFilterInvoker.Value(__instance, f)));
                     poolFilters[filterButton] = (CardModel c) => c.Pool != null && c.Pool.Id == pool.Id;
 
@@ -271,6 +284,18 @@ namespace Patchouib.Scrpits.Patches
                     yield return pool;
                 }
             }
+        }
+
+        private static string NormalizeHoverTipKey(string raw)
+        {
+            string s = raw.Trim();
+            if (s.Contains('.'))
+            {
+                return s;
+            }
+            s = s.Replace(' ', '_').Replace('-', '_');
+            s = s.ToUpperInvariant();
+            return s + ".description";
         }
     }
 }

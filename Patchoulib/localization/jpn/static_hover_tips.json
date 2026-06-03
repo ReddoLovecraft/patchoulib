@@ -1,4 +1,7 @@
 {
 	"IGNITE_POWER.title": "炎上",
-	"IGNITE_POWER.description": "あなたのターン開始時、[gold]炎上[/gold]層数と同じだけのライフを失い、その後層数を[blue]1[/blue]増やす。"
+	"IGNITE_POWER.description": "あなたのターン開始時、[gold]炎上[/gold]層数と同じだけのライフを失い、その後層数を[blue]1[/blue]増やす。",
+    "FORSEEN.title": "予見",
+    "FORSEEN.description": "[gold]ドロー山札[/gold]の上からX枚のカードを確認する。そのうち任意の枚数を捨ててもよい。",
+    "FORSEEN.selectionScreenPrompt": "任意の枚数を捨ててもよい。"
 }

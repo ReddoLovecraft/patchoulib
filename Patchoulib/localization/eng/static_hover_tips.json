@@ -1,5 +1,8 @@
 {
   "IGNITE_POWER.title": "Ignite",
-  "IGNITE_POWER.description": "At the start of your turn, lose HP equal to the stack, then increase the stack by [blue]1[/blue]."
+  "IGNITE_POWER.description": "At the start of your turn, lose HP equal to the stack, then increase the stack by [blue]1[/blue].",
+  "FORSEEN.title": "Scry",
+  "FORSEEN.description": "Look at the top X cards of your [gold]Draw Pile[/gold]. You can discard any number of them.",
+  "FORSEEN.selectionScreenPrompt": "Discard any number of cards."
 }
 
