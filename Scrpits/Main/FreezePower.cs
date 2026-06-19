@@ -1,4 +1,5 @@
-using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Abstracts;
 using BaseLib.Extensions;
@@ -37,9 +38,9 @@ namespace Patchouib.Scrpits.Main
             }
             return -Amount;
 		}
-        public override async Task BeforeTurnEndEarly(PlayerChoiceContext choiceContext, CombatSide side)
+        public override async Task BeforeSideTurnEndEarly(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
         {
-            if (side == base.Owner.Side)
+            if (participants.Contains(base.Owner))
             {
                 Flash();
                 await PowerCmd.Decrement(this);

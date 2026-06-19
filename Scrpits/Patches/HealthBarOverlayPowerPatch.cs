@@ -50,7 +50,7 @@ namespace Patchouib.Scrpits.Patches
             float offsetRight = GetFgWidth(__instance, creature.CurrentHp) - maxFgWidth;
             hpForeground.OffsetRight = offsetRight;
 
-            if (creature.ShowsInfiniteHp)
+            if (creature.HpDisplay.IsInfinite())
             {
                 var invincibleColorField = AccessTools.Field(typeof(NHealthBar), "_invincibleForegroundColor");
                 Color invincibleColor = (Color)invincibleColorField.GetValue(__instance)!;

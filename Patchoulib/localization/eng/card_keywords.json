@@ -1,4 +1,4 @@
 {
-    "PATCHOUIB-CANNOT_ESCAPE.description": "After being [gold]Exhausted[/gold] or [gold]Transformed[/gold], add a copy into your hand.",
-    "PATCHOUIB-CANNOT_ESCAPE.title": "Cannot Escape"
+    "PATCHOULIB-CANNOT_ESCAPE.description": "After being [gold]Exhausted[/gold] or [gold]Transformed[/gold], add a copy into your hand.",
+    "PATCHOULIB-CANNOT_ESCAPE.title": "Cannot Escape"
 }

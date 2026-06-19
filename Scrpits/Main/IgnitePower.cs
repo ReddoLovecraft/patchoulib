@@ -1,8 +1,10 @@
-using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -23,9 +25,9 @@ namespace Patchouib.Scrpits.Main
         {
         }
 
-        public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+        public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
         {
-            if (side != Owner.Side)
+            if (side != Owner.Side || !participants.Contains(Owner))
             {
                 return;
             }
@@ -40,7 +42,7 @@ namespace Patchouib.Scrpits.Main
             await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), Owner, Amount, ValueProp.Unblockable | ValueProp.Unpowered, null, null);
             if (Owner.IsAlive)
             {
-                await PowerCmd.ModifyAmount(this, 1, null, null);
+                await PowerCmd.ModifyAmount(new ThrowingPlayerChoiceContext(), this, 1, null, null);
             }
             else
             {

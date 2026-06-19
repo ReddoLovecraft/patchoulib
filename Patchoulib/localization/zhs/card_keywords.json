@@ -1,4 +1,4 @@
 {
-    "PATCHOUIB-CANNOT_ESCAPE.description": "被[gold]消耗[/gold]或[gold]变化[/gold]后，将一张复制品置入手中。",
-    "PATCHOUIB-CANNOT_ESCAPE.title": "无法逃脱"
+    "PATCHOULIB-CANNOT_ESCAPE.description": "被[gold]消耗[/gold]或[gold]变化[/gold]后，将一张复制品置入手中。",
+    "PATCHOULIB-CANNOT_ESCAPE.title": "无法逃脱"
 }

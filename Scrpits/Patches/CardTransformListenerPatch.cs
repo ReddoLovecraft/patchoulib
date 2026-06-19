@@ -106,7 +106,7 @@ namespace Patchouib.Scrpits.Patches
                     continue;
                 }
 
-                CombatState? combatState = resultCard.CombatState ?? transformedCard.CombatState ?? resultCard.Owner.Creature.CombatState;
+                CombatState? combatState = (CombatState?)(resultCard.CombatState ?? transformedCard.CombatState ?? resultCard.Owner.Creature.CombatState);
                 if (combatState == null)
                 {
                     Debug($"Skip[{i}] combatState null. pileType={pileType}");

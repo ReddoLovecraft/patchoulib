@@ -7,6 +7,6 @@ namespace Patchoulib.Scrpits.Main
     {
         [CustomEnum("CANNOT_ESCAPE")]
         [KeywordProperties(AutoKeywordPosition.After)]
-        public static MegaCrit.Sts2.Core.Entities.Cards.CardKeyword CannotEscapeKeyword;
+        public static CardKeyword CannotEscapeKeyword;
     }
 }
