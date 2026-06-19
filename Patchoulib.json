@@ -3,9 +3,14 @@
   "name": "帕秋莉库",
   "author": "Reddo",
   "description": "个人工具库，集成了一些常用Patch防止撞车。",
-  "version": "1.7",
+  "version": "1.8",
   "has_pck": true,
   "has_dll": true,
-  "dependencies": ["BaseLib"],
+  "dependencies": [
+    {
+      "id": "BaseLib",
+      "min_version": "3.2.0"
+    }
+  ],
   "affects_gameplay": true
 }

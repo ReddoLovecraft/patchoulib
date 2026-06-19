@@ -310,12 +310,27 @@ namespace Patchouib.Scrpits.Patches
             anchor = new VisiblePowerAnchor(creatureNode);
             creatureNode.SetMeta(_metaKey, anchor);
             creatureNode.AddChildSafely(anchor);
-            if (creatureNode.GetChildCount() > 1)
-            {
-                creatureNode.MoveChild(anchor, 1);
-            }
+            anchor.CallDeferred(nameof(EnsureAnchorOrder));
             _anchors.Add(creatureNode, anchor);
             return anchor;
+        }
+
+        private void EnsureAnchorOrder()
+        {
+            if (!GodotObject.IsInstanceValid(_creatureNode))
+            {
+                return;
+            }
+
+            if (GetParent() != _creatureNode)
+            {
+                return;
+            }
+
+            if (_creatureNode.GetChildCount() > 1 && GetIndex() != 1)
+            {
+                _creatureNode.MoveChild(this, 1);
+            }
         }
 
         public static VisiblePowerAnchor? TryGet(NCreature creatureNode)
